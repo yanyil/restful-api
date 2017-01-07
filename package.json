@@ -1,0 +1,23 @@
+{
+  "name": "holiday-extras",
+  "version": "1.0.0",
+  "description": "An API to manage a user persistence layer",
+  "main": "server.js",
+  "scripts": {
+    "start": "NODE_ENV=dev && node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yyl29/holiday-extras.git"
+  },
+  "author": "Yan-Yi Li",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yyl29/holiday-extras/issues"
+  },
+  "homepage": "https://github.com/yyl29/holiday-extras#readme",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}
