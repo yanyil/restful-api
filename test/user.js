@@ -43,6 +43,7 @@ describe('Users', function() {
           res.body[0].should.have.property('email');
           res.body[0].should.have.property('forename');
           res.body[0].should.have.property('surname');
+          res.body[0].should.have.property('createdAt');
           res.body[0].email.should.equal('example@email.com');
           res.body[0].forename.should.equal('Bob');
           res.body[0].surname.should.equal('Uncle');
@@ -67,6 +68,7 @@ describe('Users', function() {
             res.body.should.have.property('email');
             res.body.should.have.property('forename');
             res.body.should.have.property('surname');
+            res.body.should.have.property('createdAt');
             res.body.email.should.equal('user@email.com');
             res.body.forename.should.equal('Another');
             res.body.surname.should.equal('User');
@@ -118,6 +120,32 @@ describe('Users', function() {
           res.body.errors.email.should.have.property('kind').eql('required');
           done();
         });
+    });
+  });
+
+  describe('PUT /users', function() {
+    it('should UPDATE a user given the id', function(done) {
+      var newUser = new User({
+        email: 'user@email.com',
+        forename: 'Another',
+        surname: 'User'
+      });
+
+      newUser.save(function(err, data) {
+        chai.request(server)
+          .put('/api/users/' + data._id)
+          .send({forename: 'Updated'})
+          .end(function(err, res) {
+            res.should.have.status(200);
+            res.should.be.json;
+            res.body.should.be.a('object');
+            res.body.should.have.property('message').eql('User updated!');
+            User.findById(data._id, function(err, user) {
+              user.forename.should.equal('Updated');
+            });
+            done();
+          });
+      });
     });
   });
 });
