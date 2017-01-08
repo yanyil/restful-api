@@ -1,0 +1,4 @@
+{
+    "dbHost": "mongodb://localhost/users",
+    "port": 3000
+}
