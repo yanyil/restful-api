@@ -76,4 +76,48 @@ describe('Users', function() {
       });
     });
   });
+
+  describe('POST /users', function() {
+    it('should POST a user', function(done) {
+      var newUser = {
+        email: 'user@email.com',
+        forename: 'Another',
+        surname: 'User'
+      };
+
+      chai.request(server)
+        .post('/api/users')
+        .send(newUser)
+        .end(function(err, res) {
+          res.should.have.status(200);
+          res.should.be.json;
+          res.body.should.be.a('object');
+          res.body.should.have.property('message').eql('User created!');
+          User.count({}, function(err, count) {
+            count.should.equal(2);
+          });
+          done();
+        });
+    });
+
+    it('email field is required', function(done) {
+      var newUser = {
+        forename: 'Another',
+        surname: 'User'
+      };
+
+      chai.request(server)
+        .post('/api/users')
+        .send(newUser)
+        .end(function(err, res) {
+          res.should.have.status(200);
+          res.should.be.json;
+          res.body.should.be.a('object');
+          res.body.should.have.property('errors');
+          res.body.errors.should.have.property('email');
+          res.body.errors.email.should.have.property('kind').eql('required');
+          done();
+        });
+    });
+  });
 });
