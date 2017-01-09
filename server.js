@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var config = require('config');
 
-var db = process.env.IP || config.dbHost;
+var db = process.env.dbHost || config.dbHost;
 mongoose.connect(db);
 mongoose.connection.on('connected', function() {
   console.log('Mongoose connection open to ' + db);
