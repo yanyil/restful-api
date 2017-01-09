@@ -17,7 +17,7 @@ The app is deployed to Heroku at https://infinite-tundra-39507.herokuapp.com/api
 ## Installation
 From the command line:
 ```
-$ git clone https://github.com/yyl29/restful-api
+$ git clone https://github.com/yyl29/restful-api.git
 $ cd restful-api
 $ npm install
 ```
@@ -28,7 +28,7 @@ To start the server locally:
 $ npm start
 ```
 
-Then go to http://localhost:3000/api in your browser. The API can be consumed using [Postman](https://www.getpostman.com). The endpoints are:
+Then go to [http://localhost:3000/api](http://localhost:3000/api) in your browser. The API can be consumed using [Postman](https://www.getpostman.com). The endpoints are:
 
 Endpoint          | Usage
 ------------------|------------------------
