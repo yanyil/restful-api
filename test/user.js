@@ -58,9 +58,9 @@ describe('Users', function() {
         surname: 'User'
       });
 
-      newUser.save(function(err, data) {
+      newUser.save(function(err, user) {
         chai.request(server)
-          .get('/api/users/' + data._id)
+          .get('/api/users/' + user._id)
           .end(function(err, res) {
             res.should.have.status(200);
             res.should.be.json;
@@ -72,7 +72,7 @@ describe('Users', function() {
             res.body.email.should.equal('user@email.com');
             res.body.forename.should.equal('Another');
             res.body.surname.should.equal('User');
-            res.body.should.have.property('_id').eql(data.id);
+            res.body.should.have.property('_id').eql(user.id);
             done();
           });
       });
@@ -131,17 +131,42 @@ describe('Users', function() {
         surname: 'User'
       });
 
-      newUser.save(function(err, data) {
+      newUser.save(function(err, user) {
         chai.request(server)
-          .put('/api/users/' + data._id)
+          .put('/api/users/' + user._id)
           .send({forename: 'Updated'})
           .end(function(err, res) {
             res.should.have.status(200);
             res.should.be.json;
             res.body.should.be.a('object');
             res.body.should.have.property('message').eql('User updated!');
-            User.findById(data._id, function(err, user) {
+            User.findById(user._id, function(err, user) {
               user.forename.should.equal('Updated');
+            });
+            done();
+          });
+      });
+    });
+  });
+
+  describe('DELETE /users', function() {
+    it('should DELETE a user given the id', function(done) {
+      var newUser = new User({
+        email: 'user@email.com',
+        forename: 'Another',
+        surname: 'User'
+      });
+
+      newUser.save(function(err, user) {
+        chai.request(server)
+          .delete('/api/users/' + user._id)
+          .end(function(err, res) {
+            res.should.have.status(200);
+            res.should.be.json;
+            res.body.should.be.a('object');
+            res.body.should.have.property('message').eql('User deleted!');
+            User.count({}, function(err, count) {
+              count.should.equal(1);
             });
             done();
           });

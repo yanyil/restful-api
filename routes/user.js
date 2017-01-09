@@ -25,11 +25,11 @@ router.get('/users/:user_id', function(req, res) {
 router.post('/users', function(req, res) {
   var newUser = new User(req.body);
 
-  newUser.save(function(err) {
+  newUser.save(function(err, user) {
     if (err) {
       return res.send(err);
     }
-    res.json({ message: 'User created!' });
+    res.json({ message: 'User created!', user });
   });
 });
 
@@ -39,6 +39,15 @@ router.put('/users/:user_id', function(req, res) {
       return res.send(err);
     }
     res.json({ message: 'User updated!', user });
+  });
+});
+
+router.delete('/users/:user_id', function(req, res) {
+  User.findByIdAndRemove(req.params.user_id, function(err, user) {
+    if (err) {
+      return res.send(err);
+    }
+    res.json({ message: 'User deleted!', user });
   });
 });
 
