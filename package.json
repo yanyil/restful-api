@@ -1,5 +1,5 @@
 {
-  "name": "holiday-extras",
+  "name": "restful-api",
   "version": "1.0.0",
   "description": "An API to manage a user persistence layer",
   "main": "server.js",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yyl29/holiday-extras.git"
+    "url": "git+https://github.com/yyl29/restful-api.git"
   },
   "author": "Yan-Yi Li",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/yyl29/holiday-extras/issues"
+    "url": "https://github.com/yyl29/restful-api/issues"
   },
-  "homepage": "https://github.com/yyl29/holiday-extras#readme",
+  "homepage": "https://github.com/yyl29/restful-api#readme",
   "dependencies": {
     "body-parser": "^1.15.2",
     "config": "^1.24.0",
