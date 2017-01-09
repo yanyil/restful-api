@@ -1,4 +1,4 @@
-# Holiday Extras - Restful API
+# Restful API
 
 An API to manage a user persistence layer with basic CRUD (create, read, update and delete) functionality. An individual user have the following attributes:
 
@@ -17,8 +17,8 @@ The app is deployed to Heroku at https://infinite-tundra-39507.herokuapp.com/api
 ## Installation
 From the command line:
 ```
-$ git clone https://github.com/yyl29/holiday-extras.git
-$ cd holiday-extras
+$ git clone https://github.com/yyl29/restful-api
+$ cd restful-api
 $ npm install
 ```
 

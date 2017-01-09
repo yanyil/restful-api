@@ -1,5 +1,5 @@
 TN:
-SF:/Users/yanyi/Documents/Projects/Tech Tests/holiday-extras/server.js
+SF:/Users/yanyi/Documents/Projects/Tech Tests/restful-api/server.js
 FN:8,(anonymous_1)
 FNF:1
 FNH:1
@@ -30,7 +30,7 @@ BRF:4
 BRH:4
 end_of_record
 TN:
-SF:/Users/yanyi/Documents/Projects/Tech Tests/holiday-extras/routes/user.js
+SF:/Users/yanyi/Documents/Projects/Tech Tests/restful-api/routes/user.js
 FN:7,(anonymous_1)
 FN:8,(anonymous_2)
 FN:16,(anonymous_3)
@@ -100,7 +100,7 @@ BRF:10
 BRH:6
 end_of_record
 TN:
-SF:/Users/yanyi/Documents/Projects/Tech Tests/holiday-extras/models/user.js
+SF:/Users/yanyi/Documents/Projects/Tech Tests/restful-api/models/user.js
 FNF:0
 FNH:0
 DA:1,1
